@@ -1,0 +1,15 @@
+<h2>閲覧</h2>
+<%= form_with(model: @rental, local: true) do |f| %>
+<div class="field">
+    <strong><%= f.label :image %></strong>
+
+        <%= f.label :物件名%>
+        <%= f.text_field :property %>
+        <%= f.label :賃料 %>
+        <%= f.email_field :price %>
+        <%= f.label :住所 %>
+        <%= f.address_field :address %>
+        <%= f.label :築年数 %>
+        <%= f.password_field :old %>
+        <%= f.file_field :備考 %>
+        <%= f.hidden_field :content%>
