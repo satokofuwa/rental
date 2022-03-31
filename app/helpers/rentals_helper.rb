@@ -1,3 +1,3 @@
 module RentalsHelper
-    @current_property = Rental.find_by(id: rental[:id])
+  #  @current_property = rentals.find_by(id: rental[:id])
 end
