@@ -1,7 +1,7 @@
 class RentalsController < ApplicationController  
   before_action :rental_params, only: %i[ new create show edit update destroy ]
   def index
-    @rentals = Post.all
+    @rentals = Rental.all
   end
   
   def new
