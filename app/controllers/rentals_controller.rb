@@ -10,7 +10,16 @@ class RentalsController < ApplicationController
   end
   
   def create
-    @rental = Renatal.new(rental_params)
+    @rental = Rental.new(rental_params)
+    respond_to do |format|
+      if @rental.save
+        format.html { redirect_to rental_url(@rental), notice: "Rental was successfully created." }
+        format.json { render :show, status: :created, location: @rental }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @rental.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
