@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_071420) do
+ActiveRecord::Schema.define(version: 2022_03_30_141856) do
 
   create_table "rentals", force: :cascade do |t|
     t.string "property"
@@ -25,9 +25,6 @@ ActiveRecord::Schema.define(version: 2022_03_29_071420) do
     t.string "route1"
     t.string "station1"
     t.integer "walk1"
-    t.string "route2"
-    t.string "station2"
-    t.integer "walk2"
     t.integer "rental_id"
     t.index ["rental_id"], name: "index_routes_on_rental_id"
   end
