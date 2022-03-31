@@ -2,8 +2,8 @@
 <tbody>
   <%= form_with(model: @rental, local: true) do |rental| %>
     <div class="field">
-    <p>物件名: <%= rental.property %></p>
-    <p>住所: <%= rental.address %></p>
+     <p>物件名: <%= rental.property %></p>
+     <p>住所: <%= rental.address %></p> 
     <p>築年数: <%= rental.old %></p>
     <p>備考: <%= rental.content %></p>
   <% end %>

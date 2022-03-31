@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController  
-  before_action :rental_params, only: %i[ new create show edit update destroy ]
+  before_action :rental_params, only: %i[ show edit update destroy ]
   def index
     @rentals = Rental.all
   end
