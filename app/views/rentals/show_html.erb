@@ -1,15 +1,19 @@
 <h2>閲覧</h2>
-<%= form_with(model: @rental, local: true) do |f| %>
-<div class="field">
-    <strong><%= f.label :image %></strong>
+<tbody>
+  <%= form_with(model: @rental, local: true) do |rental| %>
+    <div class="field">
+    <p>物件名: <%= rental.property %></p>
+    <p>住所: <%= rental.address %></p>
+    <p>築年数: <%= rental.old %></p>
+    <p>備考: <%= rental.content %></p>
+  <% end %>
 
-        <%= f.label :物件名%>
-        <%= f.text_field :property %>
-        <%= f.label :賃料 %>
-        <%= f.email_field :price %>
-        <%= f.label :住所 %>
-        <%= f.address_field :address %>
-        <%= f.label :築年数 %>
-        <%= f.password_field :old %>
-        <%= f.file_field :備考 %>
-        <%= f.hidden_field :content%>
+  <% @routes.each do |routes| %>
+    <tr>
+    <% if rental.id == @routes.rental_id %>
+      <p>最寄駅:  <%= @routes.route1 %></p>
+      <p>駅名:  <%= @routes.station1 %></p>
+      <p>徒歩分数:  <%= @routes.walk1 %></p>  
+    <% end %>
+  <% end %>
+</tbody>
