@@ -1,15 +1,15 @@
 <h2>物件編集</h2>
-<%= form_with(model: @rental, local: true) do |f| %>
+<%= form_with(model: @rental, local: true) do |rental| %>
 <div class="field">
     <strong><%= f.label :image %></strong>
 
-        <%= f.label :物件名%>
-        <%= f.text_field :property %>
-        <%= f.label :賃料 %>
-        <%= f.email_field :price %>
-        <%= f.label :住所 %>
-        <%= f.address_field :address %>
-        <%= f.label :築年数 %>
-        <%= f.password_field :old %>
-        <%= f.file_field :備考 %>
-        <%= f.hidden_field :content%>
+        <%= rental.label :物件名%>
+        <%= rental.text_field :property %>
+        <%= rental.label :賃料 %>
+        <%= rental.email_field :price %>
+        <%= rental.label :住所 %>
+        <%= rental.address_field :address %>
+        <%= rental.label :築年数 %>
+        <%= rental.old_field :old %>
+        <%= rental.content_field :備考 %>
+        <%= rental.content_field :content%>

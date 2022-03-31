@@ -9,15 +9,13 @@
   
   <tbody>
       <% @rentals.each do |rental| %>
-      <p>物件名: <%= rental.property %></p>
-      <p>賃料: <%= rental.price %></p>
-      <p>住所: <%= rental.address %></p>
-      <p>築年数: <%= rental.old %></p>
-      <p>備考: <%= rental.content %></p>
-        <td><%= link_to '詳細', edit_rental_path(rental.id)%></td>
-        <td><%= link_to '編集', rental_path(rental.id)%></td>
-        <td><%= link_to '削除', rental_path(rental.id)%></td>
-    <% end %>
+        <p>物件名: <%= rental.property %></p>
+        <p>賃料: <%= rental.price %></p>
+        <p>住所: <%= rental.address %></p>
+        <p>築年数: <%= rental.old %></p>
+        <p>備考: <%= rental.content %></p>
+        <%= link_to '詳細', rental_path(rental.id)%>
+      <% end %>
   </tbody>
 </table>
-  
+      

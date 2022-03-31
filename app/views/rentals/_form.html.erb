@@ -1,0 +1,22 @@
+<%= form_with(model: @rental, local: true) do |form| %>
+  <div class="field">
+    <strong><%= form.label 登録 %></strong>
+      
+      <th>物件登録</th>
+        <%= rental.label :物件名%>
+        <%= rental.text_field :property %>
+        <%= rental.label :賃料 %>
+        <%= rental.email_field :price %>
+        <%= rental.label :住所 %>
+        <%= rental.address_field :address %>
+        <%= rental.label :築年数 %>
+        <%= rental.old_field :old %>
+        <%= rental.label :備考 %>
+        <%= rental.content_field :content%>
+        
+        
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to "一覧画面にもどる", feeds_path %>
