@@ -1,12 +1,13 @@
 class RentalsController < ApplicationController  
-  before_action :rental_params, only: %i[ show edit update destroy ]
+  before_action :set_property, only: %i[ show edit update destroy ]
+
   def index
     @rentals = Rental.all
   end
   
   def new
     @rental = Rental.new
-    @rental.routes.new
+    @rental.routes.build
   end
   
   def create
@@ -35,16 +36,22 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    redirect_to edit_rental_path(current_property.id)
+    #redirect_to edit_rental_path(current_property.id)
+    @rental = rental.find_by(rental_id: @rental.id)
   end
 
   def show
-    @route = current_property.find_by(rental_id: @rental.id)
+    @routes = @rental.routes
   end
   
   private
 
+  def set_property
+    @rental = Rental.find(params[:id])
+  end
+
   def rental_params
-    params.require(:rental).permit(:property, :price, :address, :old, :content )
+    params.require(:rental).permit(:property, :price, :address, :old, :content, routes_attributes: [:rental_id, :route1, :station1, :walk1 ])
   end
 end
+

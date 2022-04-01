@@ -2,8 +2,6 @@
 <%= form_with(model: @rental, local: true) do |rental| %>
 <div class="field">
     <tbody>
-    <strong><%= f.label :image %></strong>
-
         <%= rental.label :物件名%> 
         <%= rental.text_field :property %>
         <%= rental.label :賃料 %>
@@ -14,5 +12,6 @@
         <%= rental.old_field :old %>
         <%= rental.content_field :備考 %>
         <%= rental.content_field :content%>
-
     </tbody>
+
+<%= @rental.rotues.build%>

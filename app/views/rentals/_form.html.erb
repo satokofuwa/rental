@@ -1,5 +1,4 @@
 <%= form_with(model: @rental, local: true) do |form| %>
-  <div class="field">
     <h1><strong><%= form.label "物件登録" %></strong></h1>
         <tbody>
          <p><%= form.label :property,"物件名"%> </p>
@@ -12,9 +11,19 @@
          <p><%= form.text_field :old %> </p>
          <p><%= form.label :content, "備考" %> </p>
         <%= form.text_field :content%>
+ 
+ <%num=1%> 
+<%= form.fields_for :routes do |form| %>
+    <h1><strong>最寄駅<% num +=1 %></h1>
+        <tbody>
+         <p><%= form.label :station1,"路線名"%> </p>
+         <p><%= form.text_field :station1 %> </p>
+         <p><%= form.label :walk1, "徒歩分数" %> </p>
+         <p><%= form.text_field :walk1 %> </p>
   <div class="actions">
     <%= form.submit %>
        </tbody>
   </div>
 <% end %>
-<%= link_to "一覧画面にもどる", rentals_path %>
+<%= link_to "戻る", rentals_path %>
+<% end %>

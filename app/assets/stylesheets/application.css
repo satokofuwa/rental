@@ -16,3 +16,12 @@
 .field{
     line-height: 70%;
 }
+.vertical{
+    writing-mode: vertical-rl;
+}
+.line{
+    border-bottom: 1px solid gray;
+}
+.title{
+    column-width: 70px;
+}

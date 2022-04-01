@@ -1,21 +1,27 @@
-<h1>一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>物件一覧</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-      <% @rentals.each do |rental| %>
-        <p>物件名: <%= rental.property %></p>
-        <p>賃料: <%= rental.price %></p>
-        <p>住所: <%= rental.address %></p>
-        <p>築年数: <%= rental.old %></p>
-        <p>備考: <%= rental.content %></p>
-        <%= link_to '詳細', rental_path(rental.id)%>
-      <% end %>
-  </tbody>
-</table>
+<h1 class=line>一覧</h1>
+
+  <h2>物件一覧</h2>
+
+    <table>
+      <tbody>
+        <th><strong>物件名</strong></th>
+        <th><strong>賃料</strong></th>
+        <th><strong>住所</strong></th>
+        <th><strong>築年数</strong></th>
+        <th> <strong>備考</strong></th>
+
+        <% @rentals.each do |rental| %>
+        <tr>
+          <td><%= rental.property %></td>
+          <td><%= rental.price %></td>
+          <td><%= rental.address %></td>
+          <td><%= rental.old %>年</td>
+          <td><%= rental.content %></td>
+          <td class=vertical><%= link_to '詳細', rental_path(rental.id)%>
+          <td class=vertical><%= link_to '編集', edit_rental_path(rental.id)%>
+          <td class=vertical><%= link_to '削除', rental_path(rental.id)%>
+        <tr>
+        <% end %>
+      </tbody>
+    </table>
       
