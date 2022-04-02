@@ -12,7 +12,6 @@
 <%= form_with(model: @rental, local: true) do |form| %>
       <h2><strong><%= form.label "物件登録" %></strong></h2>
       <tbody>
-  
         <p><%= form.label :property,"物件名"%></p>
         <p><%= form.text_field :property %></p>
         <p><%= form.label :price, "賃料" %></p>
@@ -24,16 +23,19 @@
         <p><%= form.label :content, "備考" %></p>
         <p><%= form.text_field :content%></p>
 
-        <%= form.fields_for :routes do |route| %>
-        <h3><strong><%= "最寄駅#{route.index + 1 }"%></strong></h3>
+          
+          <%= if @rental.route.any?%>
+            <%= form.fields_for :routes do |route| %>
+        <h3><strong><%= "最寄駅#{routes.index + = 1 }"%></strong></h3>
             <p><%= route.label :route1,"路線名" %></p>
             <p><%= route.text_field :route1 %></p>
              <p><%= route.label :station1, "駅名" %></p>
             <p><%= route.text_field :station1 %></p>
             <p><%= route.label :walk1, "徒歩分数" %></p>
             <p><%= route.text_field :walk1 %></p> 
+            <%num +1%>
         <% end %>
-      </tbody> 
+        </tbody> 
           <%= form.submit %>
 <% end %>
   <br>

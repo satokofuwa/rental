@@ -12,31 +12,25 @@ class RentalsController < ApplicationController
   
   def create
     @rental = Rental.new(rental_params)
-    respond_to do |format|
       if @rental.save
-        format.html { redirect_to rental_url(@rental), notice: "Rental was successfully created." }
-        format.json { render :show, status: :created, location: @rental }
+         redirect_to rental_url(@rental), notice: "Rental was successfully created." 
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @rental.errors, status: :unprocessable_entity }
+        redirect_to rental_url(@rental), notice: "An error has occurred." 
       end
-    end
   end
 
   def update
-    respond_to do |format|
         if @rental.update(rental_params)     
-          format.html { redirect_to rental_url(@rental), notice: "property was successfully updated." }
-          format.json { render :show, status: :ok, location: @rental }
+          redirect_to rental_url, notice: "property has been successfully updated." 
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @rental.errors, status: :unprocessable_entity }
+          redirect_to edit_rental_url,notice: "An error has occered"
         end
-    end
   end
+
 
   def edit
     @routes = @rental.routes
+    1.times{@rental.routes.build}
   end
 
   def show

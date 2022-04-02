@@ -6,18 +6,19 @@
       <p>住所: <%= @rental.address %></p> 
       <p>築年数: <%= @rental.old %></p>
       <p>備考: <%= @rental.content %></p>
- 
-      <% num = 1 %> 
-      <% @routes.each do |form| %>
-        <% if @rental.routes.any? %>
-          <h3><strong>最寄駅<%= num += 1 %></strong></h3>
-          <p>路線名<%= form.route1 %></p>
-          <p>駅名 <%= form.station1 %> </p>
-          <p>徒歩分数 <%= form.walk1 %> </p>
+        <% num = 0 %> 
+        <% @routes.each do |form| %>
+          <% if @rental.routes.any? %>
+            <h3><strong>最寄駅 <%= num += 1  %></strong></h3>
+            <p>路線名<%= form.route1 %></p>
+            <p>駅名 <%= form.station1 %> </p>
+            <p>徒歩分数 <%= form.walk1 %> </p>
+          <% else %>
+            <p><%= flash[:notice]= "sorry,we don't have any routes information"  %></p>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </tbody>
 </table>
  <%= link_to "戻る", rentals_path %>
-  <%= link_to "編集",edit_rental_path%>
+<%= link_to "編集",edit_rental_path%>

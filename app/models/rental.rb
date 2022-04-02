@@ -12,4 +12,6 @@ class Rental < ApplicationRecord
   message: "備考欄"
   has_many :routes, dependent: :destroy
   accepts_nested_attributes_for :routes, allow_destroy: true ,reject_if: :all_blank
+
+  
 end
