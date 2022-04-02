@@ -14,7 +14,8 @@
  *= require_self
  */
 .field{
-    line-height: 70%;
+    line-height: 30%;
+    padding: 5px 1em 0 1em;
 }
 .vertical{
     writing-mode: vertical-rl;
@@ -24,4 +25,13 @@
 }
 .title{
     column-width: 70px;
+}
+.actions{
+    content: "A" ;
+    white-space: pre;
+    margin-right: 50px;
+}
+.show{
+    line-height: 70%;
+    padding: 5px 1em 0 1em;
 }
