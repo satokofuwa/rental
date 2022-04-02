@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController  
-  before_action :set_property, only: %i[ show edit update delete]
+  before_action :set_property, only: %i[ show edit update destroy]
 
   def index
     @rentals = Rental.all
@@ -44,11 +44,10 @@ class RentalsController < ApplicationController
   end
   
   def destroy
-    @rental.destroy
-      respond_to do |format|
-        format.html { redirect_to rental_url, notice: "rental was successfully destroyed." }
-        format.json { head :no_content }
-      end
+    if @rental.present?
+      @rental.destroy
+    end
+    redirect_to rentals_url, notice: "the property has been deleted!"
   end 
 
   private
