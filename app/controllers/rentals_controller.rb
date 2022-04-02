@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController  
-  before_action :set_property, only: %i[ show edit update destroy ]
+  before_action :set_property, only: %i[ show edit update delete]
 
   def index
     @rentals = Rental.all
@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
   
   def new
     @rental = Rental.new
-    2.times { @rental.routes.build }
+    @rental.routes.build 
   end 
   
   def create

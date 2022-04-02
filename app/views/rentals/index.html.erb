@@ -19,7 +19,7 @@
             <td><%= rental.content %></td>
             <td class=vertical><%= link_to '詳細', rental_path(rental.id)%>
             <td class=vertical><%= link_to '編集', edit_rental_path(rental.id)%>
-            <td><%= button_to '削除',rental_path(rental.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '削除',rental_path(rental.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <tr>
         <% end %>
       </tbody>
