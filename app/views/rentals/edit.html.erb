@@ -1,17 +1,2 @@
-<h2>物件編集</h2>
-<%= form_with(model: @rental, local: true) do |rental| %>
-<div class="field">
-    <tbody>
-        <%= rental.label :物件名%> 
-        <%= rental.text_field :property %>
-        <%= rental.label :賃料 %>
-        <%= rental.email_field :price %>
-        <%= rental.label :住所 %>
-        <%= rental.address_field :address %>
-        <%= rental.label :築年数 %>
-        <%= rental.old_field :old %>
-        <%= rental.content_field :備考 %>
-        <%= rental.content_field :content%>
-    </tbody>
-
-<%= @rental.rotues.build%>
+<h4>編集画面</h4>
+<%= render 'form', rental: @rental %>

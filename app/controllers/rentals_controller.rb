@@ -7,8 +7,8 @@ class RentalsController < ApplicationController
   
   def new
     @rental = Rental.new
-    @rental.routes.build
-  end
+    2.times { @rental.routes.build }
+  end 
   
   def create
     @rental = Rental.new(rental_params)
@@ -32,18 +32,25 @@ class RentalsController < ApplicationController
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @rental.errors, status: :unprocessable_entity }
         end
-      end
+    end
   end
 
   def edit
-    #redirect_to edit_rental_path(current_property.id)
-    @rental = rental.find_by(rental_id: @rental.id)
+    @routes = @rental.routes
   end
 
   def show
-    @routes = @rental.routes
+    @routes = @rental.routes #rentalの情報はset_propertyで情報を持ってきてるので、ここではroutes情報のみ
   end
   
+  def destroy
+    @rental.destroy
+      respond_to do |format|
+        format.html { redirect_to rental_url, notice: "rental was successfully destroyed." }
+        format.json { head :no_content }
+      end
+  end 
+
   private
 
   def set_property
@@ -54,4 +61,3 @@ class RentalsController < ApplicationController
     params.require(:rental).permit(:property, :price, :address, :old, :content, routes_attributes: [:rental_id, :route1, :station1, :walk1 ])
   end
 end
-
