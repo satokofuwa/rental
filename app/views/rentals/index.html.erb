@@ -1,7 +1,5 @@
 <h1 class=line>一覧</h1>
-
   <h2>物件一覧</h2>
-
     <table>
       <tbody>
         <th><strong>物件名</strong></th>
@@ -9,7 +7,6 @@
         <th><strong>住所</strong></th>
         <th><strong>築年数</strong></th>
         <th> <strong>備考</strong></th>
-
         <% @rentals.each do |rental| %>
           <tr>
             <td><%= rental.property %></td>
@@ -24,6 +21,6 @@
         <% end %>
       </tbody>
     </table>
-     <%= link_to '物件を登録する', new_rental_path %>
+    <%= link_to '物件を登録する', new_rental_path %>
 
       

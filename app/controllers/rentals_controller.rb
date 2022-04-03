@@ -27,7 +27,6 @@ class RentalsController < ApplicationController
         end
   end
 
-
   def edit
     @routes = @rental.routes
     1.times{@rental.routes.build}
